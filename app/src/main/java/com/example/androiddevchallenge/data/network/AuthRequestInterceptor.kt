@@ -10,7 +10,6 @@ class AuthRequestInterceptor(private val baseUrl: String) : Interceptor {
         chain.proceed(chain.request().let { request ->
             if (request.url().toString().startsWith(baseUrl)) {
                 request.newBuilder().apply {
-                    addHeader("Content-type", "application/json")
                     post(
                         MultipartBody.Builder()
                             .setType(MultipartBody.FORM)
