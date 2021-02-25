@@ -83,6 +83,7 @@ dependencies {
     implementation "androidx.compose.material:material:${versions.compose}"
     implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
     implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
+    implementation "androidx.navigation:navigation-compose:${versions.navigation_compose}"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}"
     implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
     implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
