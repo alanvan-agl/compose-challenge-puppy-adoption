@@ -1,7 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
+
+Properties properties = new Properties()
+try {
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
+} catch(Exception ex){
+}
+
 
 android {
     compileSdkVersion 30
@@ -29,9 +37,13 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            buildConfigField 'String', 'API_KEY', properties.getProperty('api_key')
+            buildConfigField 'String', 'SECRET', properties.getProperty('secret')
         }
         release {
             minifyEnabled false
+            buildConfigField 'String', 'API_KEY', properties.getProperty('api_key')
+            buildConfigField 'String', 'SECRET', properties.getProperty('secret')
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -44,7 +56,6 @@ android {
         compose true
 
         // Disable unused AGP features
-        buildConfig false
         aidl false
         renderScript false
         resValues false
@@ -52,7 +63,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion "${versions["compose"]}"
     }
 
     packagingOptions {
@@ -64,18 +75,24 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation "androidx.activity:activity-compose:1.3.0-alpha03"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    implementation "androidx.core:core-ktx:${versions.androidx_core}"
+    implementation "androidx.appcompat:appcompat:${versions.appcompat}"
+    implementation "com.google.android.material:material:${versions.material}"
+    implementation "androidx.activity:activity-compose:${versions.activity_compose}"
+    implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.material:material:${versions.compose}"
+    implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
+    implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}"
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
+    implementation "com.squareup.moshi:moshi:${versions.moshi}"
+    implementation "com.squareup.moshi:moshi-adapters:${versions.moshi}"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
 
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:${versions.compose}"
 }

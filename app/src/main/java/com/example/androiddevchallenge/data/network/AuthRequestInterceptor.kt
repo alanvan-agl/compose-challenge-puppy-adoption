@@ -1,7 +1,6 @@
-package com.example.androiddevchallenge.data.service
+package com.example.androiddevchallenge.data.network
 
 import com.example.androiddevchallenge.BuildConfig
-import com.example.androiddevchallenge.data.repository.TokenRepository
 import okhttp3.Interceptor
 import okhttp3.MultipartBody
 import okhttp3.Response

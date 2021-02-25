@@ -1,6 +1,6 @@
 package com.example.androiddevchallenge.data.auth
 
-data class Token(
+data class Auth(
     val value: String,
-    val expiresIn: Int
+    val expiresIn: Long
 )
