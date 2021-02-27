@@ -12,7 +12,8 @@ import com.example.androiddevchallenge.ui.theme.PuppyTheme
 fun PuppyScaffold(
     scaffoldState: ScaffoldState = rememberScaffoldState(),
     topBarTitle: @Composable RowScope.() -> Unit,
-    topBarAction: @Composable RowScope.() -> Unit = { },
+    showNavIcon: Boolean = true,
+    onNavIconPressed: () -> Unit = {},
     content: @Composable (PaddingValues) -> Unit
 ) {
     PuppyTheme {
@@ -21,7 +22,8 @@ fun PuppyScaffold(
             topBar = {
                 PuppyAppBar(
                     title = topBarTitle,
-                    actions = topBarAction
+                    showNavIcon = showNavIcon,
+                    onNavIconPressed = onNavIconPressed
                 )
             },
             backgroundColor = MaterialTheme.colors.background,

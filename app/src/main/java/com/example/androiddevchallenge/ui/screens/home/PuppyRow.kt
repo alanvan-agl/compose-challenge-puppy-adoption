@@ -1,7 +1,9 @@
 package com.example.androiddevchallenge.ui.screens.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,8 +15,13 @@ import com.example.androiddevchallenge.ui.screens.model.Puppy
 import dev.chrisbanes.accompanist.glide.GlideImage
 
 @Composable
-fun PuppyRow(puppy: Puppy) {
-    Row(Modifier.height(56.dp)) {
+fun PuppyRow(puppy: Puppy, onPuppySelected: (Long, String) -> Unit) {
+    Row(
+        Modifier
+            .height(56.dp)
+            .clickable {
+                onPuppySelected(puppy.id, puppy.name)
+            }) {
         Box(modifier = Modifier.weight(1f)) {
             GlideImage(
                 modifier = Modifier.size(56.dp, 56.dp),
@@ -22,7 +29,7 @@ fun PuppyRow(puppy: Puppy) {
                 contentDescription = "",
                 error = {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_puppy_placeholder_purple),
+                        painter = painterResource(id = R.drawable.ic_puppy_placeholder_purple_56),
                         contentDescription = ""
                     )
                 },
@@ -34,10 +41,12 @@ fun PuppyRow(puppy: Puppy) {
             )
         }
         Column(
-            modifier = Modifier.weight(2f).fillMaxSize(),
+            modifier = Modifier
+                .weight(2f)
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Center
         ) {
-            Text(text = puppy.name)
+            Text(text = puppy.name, color = MaterialTheme.colors.secondary)
         }
     }
 }

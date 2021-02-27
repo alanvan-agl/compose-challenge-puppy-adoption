@@ -1,9 +1,9 @@
 package com.example.androiddevchallenge.ui.screens.model
 
-import com.example.androiddevchallenge.data.puppy.PuppiesResponse
+import com.example.androiddevchallenge.data.puppy.Puppy as DataPuppy
 
 object PuppyMapper {
-    fun map(response: PuppiesResponse.PuppyResponse) = Puppy(
+    fun map(response: DataPuppy) = Puppy(
         id = response.id,
         name = response.name,
         description = response.description ?: "",
@@ -15,6 +15,6 @@ object PuppyMapper {
         } ?: ""
     )
 
-    private fun mapPhotoUrl(photo: PuppiesResponse.PuppyResponse.Photo): String? =
+    private fun mapPhotoUrl(photo: DataPuppy.Photo): String? =
         photo.full ?: photo.large ?: photo.medium ?: photo.small
 }
