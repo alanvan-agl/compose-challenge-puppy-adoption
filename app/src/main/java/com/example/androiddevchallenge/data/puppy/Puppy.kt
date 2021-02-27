@@ -28,7 +28,8 @@ data class Puppy(
     val coat: String?,
     val name: String,
     val description: String?,
-    val photos: List<Photo>
+    val photos: List<Photo>,
+    val contact: Contact
 ) {
     @JsonClass(generateAdapter = true)
     data class Breed(
@@ -51,5 +52,11 @@ data class Puppy(
         val medium: String?,
         val large: String?,
         val full: String?
+    )
+
+    @JsonClass(generateAdapter = true)
+    data class Contact(
+        val email: String?,
+        val phone: String?
     )
 }

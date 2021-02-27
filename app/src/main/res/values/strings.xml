@@ -18,4 +18,6 @@
     <string name="color">Color: %s</string>
     <string name="description">About me: %s</string>
     <string name="size">Size: %s</string>
+    <string name="email">Email: %s</string>
+    <string name="phone">Phone: %s</string>
 </resources>

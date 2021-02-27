@@ -2,21 +2,27 @@
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/<REPOSITORY>/workflows/Check/badge.svg)
+![Workflow result](https://github.com/alanvan-agl/compose-challenge-puppy-adoption/workflows/Check/badge.svg)
 
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
-
+Puppy adoption app with a list of puppies on the Home Screen and clicking on each puppy will take you to 
+the puppy detail page
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-
+I am especially proud of being able to use Jetpack compose with the UDF pattern to quickly create a
+puppy adoption app (fetching real data). I feel that it is a totally new paradigm of Android UI development and I 
+do enjoy the process.
+I'm proud of the clean architecture of the app that I am able to create in a very short period of time.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
 <img src="/results/screenshot_1.png" width="260">&emsp;<img src="/results/screenshot_2.png" width="260">
+&emsp;<img src="https://user-images.githubusercontent.com/66227659/109390664-21c3bb00-7967-11eb-827c-73e63fb754e7.jpg" width="260">
+&emsp;<img src="https://user-images.githubusercontent.com/66227659/109390668-2a1bf600-7967-11eb-9295-7b85087aaae6.jpg" width="260">
 
 ## License
 ```

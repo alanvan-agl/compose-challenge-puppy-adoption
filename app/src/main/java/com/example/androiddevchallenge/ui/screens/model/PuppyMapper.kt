@@ -27,7 +27,9 @@ object PuppyMapper {
         color = response.colors.primary ?: "",
         photoUrl = response.photos.firstOrNull()?.let {
             mapPhotoUrl(it)
-        } ?: ""
+        } ?: "",
+        email = response.contact.email ?: "",
+        phone = response.contact.phone ?: "",
     )
 
     private fun mapPhotoUrl(photo: DataPuppy.Photo): String? =

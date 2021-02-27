@@ -123,6 +123,8 @@ fun SuccessState(state: DetailViewModel.State.Success) {
                 PuppyDescription(R.string.gender, puppy.gender)
                 PuppyDescription(R.string.size, puppy.size)
                 PuppyDescription(R.string.color, puppy.color)
+                PuppyDescription(R.string.email, puppy.email)
+                PuppyDescription(R.string.phone, puppy.phone)
                 PuppyDescription(R.string.description, puppy.description)
             }
         }

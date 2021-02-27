@@ -22,5 +22,7 @@ data class Puppy(
     val gender: String,
     val size: String,
     val color: String,
-    val photoUrl: String
+    val photoUrl: String,
+    val email: String,
+    val phone: String
 )
