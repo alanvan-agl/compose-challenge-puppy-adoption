@@ -21,8 +21,6 @@ I'm proud of the clean architecture of the app that I am able to create in a ver
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
 <img src="/results/screenshot_1.png" width="260">&emsp;<img src="/results/screenshot_2.png" width="260">
-&emsp;<img src="https://user-images.githubusercontent.com/66227659/109390664-21c3bb00-7967-11eb-827c-73e63fb754e7.jpg" width="260">
-&emsp;<img src="https://user-images.githubusercontent.com/66227659/109390668-2a1bf600-7967-11eb-9295-7b85087aaae6.jpg" width="260">
 
 ## License
 ```
