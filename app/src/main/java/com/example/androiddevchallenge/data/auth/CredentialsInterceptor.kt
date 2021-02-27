@@ -1,5 +1,6 @@
 package com.example.androiddevchallenge.data.auth
 
+import android.util.Log
 import com.example.androiddevchallenge.utils.tryOrNull
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
@@ -17,11 +18,12 @@ class CredentialsInterceptor(
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().let { request ->
-            if (request.url().toString().startsWith(baseUrl)) {
+            if (request.url.toString().startsWith(baseUrl)) {
                 request.newBuilder().apply {
                     tryOrNull {
                         runBlocking {
                             credentialsRepository.get().collect {
+                                Log.d("dmdmdm", "token ${it.value}")
                                 addHeader(AUTH_HEADER_KEY, "$BEARER_PREFIX ${it.value}")
                             }
                         }

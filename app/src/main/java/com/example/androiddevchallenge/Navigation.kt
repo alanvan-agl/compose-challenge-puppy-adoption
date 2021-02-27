@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androiddevchallenge.di.SingletonInjector
 import com.example.androiddevchallenge.ui.screens.DetailScreen
-import com.example.androiddevchallenge.ui.screens.HomeScreen
+import com.example.androiddevchallenge.ui.screens.home.HomeScreen
 
 sealed class Screen(val route: String) {
     object Home: Screen("home")

@@ -6,7 +6,10 @@ import com.example.androiddevchallenge.data.auth.CredentialsInterceptor
 import com.example.androiddevchallenge.data.auth.CredentialsRepository
 import com.example.androiddevchallenge.data.network.AuthRequestInterceptor
 import com.example.androiddevchallenge.data.network.FlowCallAdapterFactory
+import com.example.androiddevchallenge.data.puppy.PuppyContract
+import com.example.androiddevchallenge.data.puppy.PuppyRepository
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
@@ -36,6 +39,9 @@ class SingletonInjector(val context: Context) {
     private val okHttpClient by lazy {
         OkHttpClient.Builder()
             .addInterceptor(CredentialsInterceptor(BASE_URL, credentialsRepository))
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                setLevel(HttpLoggingInterceptor.Level.BODY)
+            })
             .build()
     }
 
@@ -47,4 +53,8 @@ class SingletonInjector(val context: Context) {
             .addCallAdapterFactory(FlowCallAdapterFactory())
             .build()
     }
+
+    private val puppyRepository: PuppyContract.Repository = PuppyRepository(retrofit.create())
+
+    fun providePuppyRepository(): PuppyContract.Repository = puppyRepository
 }

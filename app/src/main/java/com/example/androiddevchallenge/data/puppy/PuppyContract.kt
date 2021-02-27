@@ -4,6 +4,6 @@ import kotlinx.coroutines.flow.Flow
 
 object PuppyContract {
     interface Repository {
-        fun getAllPuppies(): Flow<List<PuppyResponse>>
+        fun getAllPuppies(): Flow<List<PuppiesResponse.PuppyResponse>>
     }
 }

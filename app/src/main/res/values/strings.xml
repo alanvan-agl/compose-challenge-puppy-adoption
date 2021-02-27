@@ -10,4 +10,8 @@
       the License.
       -->
     <string name="app_name">AndroidDevChallenge</string>
+    <string name="back">Navigate back</string>
+    <string name="home">Puppies</string>
+    <string name="error">Something went wrong!</string>
+    <string name="retry">Retry</string>
 </resources>

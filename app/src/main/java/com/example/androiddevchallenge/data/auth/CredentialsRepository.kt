@@ -13,13 +13,17 @@ class CredentialsRepository(private val api: Api) : CredentialsContract.Reposito
             flowOf(cachedCredentials!!)
         } else {
             api.get().map {
-                cachedCredentials = it
-                it
+                val credentials = Credentials(
+                    it.access_token,
+                    it.expires_in
+                )
+                cachedCredentials = credentials
+                credentials
             }
         }
 
     interface Api {
         @GET("v2/oauth2/token")
-        fun get(): Flow<Credentials>
+        fun get(): Flow<CredentialsResponse>
     }
 }

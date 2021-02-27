@@ -37,6 +37,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            debuggable true
             buildConfigField 'String', 'API_KEY', properties.getProperty('api_key')
             buildConfigField 'String', 'SECRET', properties.getProperty('secret')
         }
@@ -86,10 +87,11 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:${versions.navigation_compose}"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle}"
     implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
     implementation "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
     implementation "com.squareup.moshi:moshi:${versions.moshi}"
     implementation "com.squareup.moshi:moshi-adapters:${versions.moshi}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging}"
+    implementation "dev.chrisbanes.accompanist:accompanist-glide:${versions.glide}"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
 
     testImplementation 'junit:junit:4.13.2'

@@ -8,7 +8,7 @@ import okhttp3.Response
 class AuthRequestInterceptor(private val baseUrl: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response =
         chain.proceed(chain.request().let { request ->
-            if (request.url().toString().startsWith(baseUrl)) {
+            if (request.url.toString().startsWith(baseUrl)) {
                 request.newBuilder().apply {
                     post(
                         MultipartBody.Builder()
