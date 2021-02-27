@@ -75,6 +75,26 @@ android {
     }
 }
 
+configurations {
+    ktlint
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "--reporter=plain?group_by_file", "src/**/*.kt"
+}
+
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}
+
 dependencies {
     implementation "androidx.core:core-ktx:${versions.androidx_core}"
     implementation "androidx.appcompat:appcompat:${versions.appcompat}"
@@ -93,6 +113,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging}"
     implementation "dev.chrisbanes.accompanist:accompanist-glide:${versions.glide}"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+
+    ktlint "com.pinterest:ktlint:${versions.ktlint}"
 
     testImplementation 'junit:junit:4.13.2'
 

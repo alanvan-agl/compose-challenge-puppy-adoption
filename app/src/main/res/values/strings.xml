@@ -14,4 +14,8 @@
     <string name="home">Puppies</string>
     <string name="error">Something went wrong!</string>
     <string name="retry">Retry</string>
+    <string name="gender">Gender: %s</string>
+    <string name="color">Color: %s</string>
+    <string name="description">About me: %s</string>
+    <string name="size">Size: %s</string>
 </resources>
