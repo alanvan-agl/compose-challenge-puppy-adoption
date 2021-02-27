@@ -24,8 +24,8 @@ jobs:
 
       - name: Build project
         env:
-          API_KEY: ${{secrets.API_KEY}}
-          SECRET: ${{secrets.SECRET}}
+          API_KEY: ${{ secrets.API_KEY }}
+          SECRET: ${{ secrets.SECRET }}
         run: ./gradlew spotlessCheck assembleDebug lintDebug --stacktrace
 
       - name: Upload build outputs (APKs)
