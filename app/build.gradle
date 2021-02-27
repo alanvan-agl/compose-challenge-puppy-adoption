@@ -43,8 +43,6 @@ android {
         }
         release {
             minifyEnabled false
-            buildConfigField 'String', 'API_KEY', properties.getProperty('api_key')
-            buildConfigField 'String', 'SECRET', properties.getProperty('secret')
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
